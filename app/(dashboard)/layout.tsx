@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-const DashboardLayout = ({ children }: { chidlren: ReactNode }) => {
+const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={"h-full relative"}>
       <div
