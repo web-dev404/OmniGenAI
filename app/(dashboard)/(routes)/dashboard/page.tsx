@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const tools = [
   {
@@ -50,10 +51,12 @@ const tools = [
 ];
 
 export default function Dashboard() {
+  const router = useRouter();
+
   return (
     <div>
       <div className={"mb-8 space-y-4"}>
-        <h2 className={"text-2xl md:text-4xl font-bold"}>
+        <h2 className={"text-2xl md:text-4xl font-bold text-center"}>
           Explore the power of AI
         </h2>
         <p
@@ -68,6 +71,7 @@ export default function Dashboard() {
       <div className={"px-4 md:px-20 lg:px-32 space-y-4"}>
         {tools.map((tool) => (
           <Card
+            onClick={() => router.push(tool.href)}
             key={tool.label}
             {...tool}
             className={
