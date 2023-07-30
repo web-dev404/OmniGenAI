@@ -67,39 +67,31 @@ const routes = [
 const Sidebar = () => {
   return (
     <div
-      className={
-        "hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-[80] bg-gray-900"
-      }
+      className={"space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white"}
     >
-      <div
-        className={
-          "space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white"
-        }
-      >
-        <div className={"px-3 py-2 flex-1"}>
-          <Link
-            className={"flex items-center pl-3 mb-14 relative w-full h-12"}
-            href={"/dashboard"}
-          >
-            <Image fill alt={"logo"} src={"/logo.svg"} />
-          </Link>
+      <div className={"px-3 py-2 flex-1"}>
+        <Link
+          className={"flex items-center pl-3 mb-14 relative w-full h-12"}
+          href={"/dashboard"}
+        >
+          <Image fill alt={"logo"} src={"/logo.svg"} />
+        </Link>
 
-          <div className={"space-y-1"}>
-            {routes.map((route) => (
-              <Link
-                className={
-                  "text-sm group p-3 flex w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition"
-                }
-                href={route.href}
-                key={route.href}
-              >
-                <div className={"flex items-center flex-1"}>
-                  <route.icon className={cn("w-6 h-6 mr-3", route.color)} />
-                  {route.label}
-                </div>
-              </Link>
-            ))}
-          </div>
+        <div className={"space-y-1"}>
+          {routes.map((route) => (
+            <Link
+              className={
+                "text-sm group p-3 flex w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition"
+              }
+              href={route.href}
+              key={route.href}
+            >
+              <div className={"flex items-center flex-1"}>
+                <route.icon className={cn("w-6 h-6 mr-3", route.color)} />
+                {route.label}
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
