@@ -7,6 +7,8 @@ import { formSchema } from "@/app/(dashboard)/(routes)/conversation/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const ConversationPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -43,17 +45,28 @@ const ConversationPage = () => {
             >
               <FormField
                 render={({ field }) => (
-                  <FormItem
-                    className={"col-span-12 lg:col-span-10"}
-                    {...field}
-                    label={"Prompt"}
-                  >
-                    <FormControl className={"m-0 p-0"}></FormControl>
+                  <FormItem className={"col-span-12 lg:col-span-10"} {...field}>
+                    <FormControl className={"m-0 p-0"}>
+                      <Input
+                        className={
+                          "border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        }
+                        placeholder={"How do I calculate the area of a circle?"}
+                        disabled={isLoading}
+                        {...field}
+                      />
+                    </FormControl>
                   </FormItem>
                 )}
                 name={"prompt"}
-                label={"Prompt"}
               />
+
+              <Button
+                className={"col-span-12 lg:col-span-2 w-full"}
+                disabled={isLoading}
+              >
+                Generate
+              </Button>
             </form>
           </Form>
         </div>
